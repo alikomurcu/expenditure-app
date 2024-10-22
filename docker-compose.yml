@@ -21,7 +21,7 @@ services:
       - mongo
     environment:
       - MONGO_URI=mongodb://mongo:27017/expenditure-db
-      - MONGO_URI=mongodb+srv://alikomurcu:<5wIMugWfs9GS4usl>@cluster0.c7eou.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - MONGO_URI=mongodb+srv://alikomurcu:5wIMugWfs9GS4usl@cluster0.c7eou.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
       - JWT_SECRET=my_jwt_secret
   frontend:
     build:
