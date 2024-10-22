@@ -9,7 +9,9 @@ const PORT = process.env.PORT || 3001;
 const MONGO_URI = process.env.MONGO_URI;
 const JWT_SECRET = process.env.JWT_SECRET;
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://alikomurcu.github.io/expenditure-app'
+}));
 app.use(express.json());
 
 mongoose.connect(MONGO_URI, {
