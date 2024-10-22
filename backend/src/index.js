@@ -10,7 +10,7 @@ const MONGO_URI = process.env.MONGO_URI;
 const JWT_SECRET = process.env.JWT_SECRET;
 
 app.use(cors({
-  origin: 'https://alikomurcu.github.io/expenditure-app'
+  origin: 'https://alikomurcu.github.io'
 }));
 app.use(express.json());
 
