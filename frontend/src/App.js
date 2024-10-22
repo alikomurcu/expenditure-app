@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker"; // Import DatePicker
 import "react-datepicker/dist/react-datepicker.css"; // Import styles
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+const API_URL = 'https://expenditure-app-backend.onrender.com';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -35,7 +36,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/api/expenses", {
+      await axios.post(`${API_URL}/api/expenses`, {
         amount: parseFloat(amount),
         expenditureType,
         date: date.toISOString(),

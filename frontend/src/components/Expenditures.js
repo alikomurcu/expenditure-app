@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+const API_URL = 'https://expenditure-app-backend.onrender.com';
 const Expenditures = () => {
     const [expenditures, setExpenditures] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('http://localhost:3001/api/expenditures')
+        axios.get(`${API_URL}/api/expenditures`)
             .then((response) => {
                 setExpenditures(response.data);
                 setLoading(false);

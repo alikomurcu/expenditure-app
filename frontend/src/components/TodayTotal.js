@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API_URL = 'https://expenditure-app-backend.onrender.com';
+
 const TodayTotal = ({ refreshKey }) => {
   const [todayTotal, setTodayTotal] = useState(0);
 
   useEffect(() => {
     const fetchTodayTotal = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/expenses/today-total', {
+        const response = await axios.get(`${API_URL}/api/expenses/today-total`, {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }

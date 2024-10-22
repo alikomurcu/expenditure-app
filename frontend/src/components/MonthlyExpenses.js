@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-
+const API_URL = 'https://expenditure-app-backend.onrender.com';
 const MonthlyExpenses = ({ refreshKey }) => {
   const [expenses, setExpenses] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/api/expenses/monthly-expenses', {
+    axios.get(`${API_URL}/api/expenses/monthly-expenses`, {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       }

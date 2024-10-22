@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+const API_URL = 'https://expenditure-app-backend.onrender.com';
 const Signup = ({ onSignup, switchToLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -8,7 +8,7 @@ const Signup = ({ onSignup, switchToLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/api/auth/signup', { email, password });
+      const response = await axios.post(`${API_URL}/api/auth/signup`, { email, password });
       localStorage.setItem('token', response.data.token);
       onSignup();
     } catch (error) {
