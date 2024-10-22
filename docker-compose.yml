@@ -1,21 +1,22 @@
-version: '3'
+version: '3.8'
 services:
   mongo:
     image: mongo:latest
-    container_name: expenditure_mongo
     ports:
       - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
 
   backend:
-    container_name: expenditure_app_backend
     build:
       context: ./backend
+      dockerfile: Dockerfile.dev
     ports:
-      - "3001:3001"  # Expose the container's port 3001 to your machine
+      - "3001:3001"
     volumes:
-      - ./backend:/usr/src/app  # Mount the backend code in the container
-      - /usr/src/app/node_modules  # Avoid overriding node_modules
-    command: npm run dev
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    command: ["npm", "run", "dev"]
     depends_on:
       - mongo
     environment:
@@ -23,9 +24,20 @@ services:
 
   frontend:
     build:
-      context: ./frontend  # Assuming your frontend code is in a 'frontend' folder
-    container_name: expenditure_app_frontend
+      context: ./frontend
+      dockerfile: Dockerfile.dev
     ports:
-      - "3000:3000"  # Assuming your frontend runs on port 3000
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WDS_SOCKET_PORT=0
+    stdin_open: true
+    tty: true
     depends_on:
       - backend
+
+volumes:
+  mongodb_data:
