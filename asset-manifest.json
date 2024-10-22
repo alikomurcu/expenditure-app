@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/expenditure-app/static/css/main.fdfcc7b5.css",
+    "main.js": "/expenditure-app/static/js/main.9fe1d29c.js",
+    "static/js/453.bc095e79.chunk.js": "/expenditure-app/static/js/453.bc095e79.chunk.js",
+    "index.html": "/expenditure-app/index.html",
+    "main.fdfcc7b5.css.map": "/expenditure-app/static/css/main.fdfcc7b5.css.map",
+    "main.9fe1d29c.js.map": "/expenditure-app/static/js/main.9fe1d29c.js.map",
+    "453.bc095e79.chunk.js.map": "/expenditure-app/static/js/453.bc095e79.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fdfcc7b5.css",
+    "static/js/main.9fe1d29c.js"
+  ]
+}
